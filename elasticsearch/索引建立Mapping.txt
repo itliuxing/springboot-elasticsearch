@@ -1,0 +1,71 @@
+#建立索引并创建mapping
+PUT /wisestar
+{
+	"settings" : { 
+		"index": {
+			"number_of_shards": "5",
+			"number_of_replicas": "1"
+		}
+	},
+	"mappings" : {
+	  "material" : {
+		"properties" : {
+		  "id" : {
+			"type" : "keyword"
+		  },
+		  "bswName" : {
+			  "type" : "text",
+			  "analyzer": "ik_max_word",
+			  "search_analyzer": "ik_max_word"
+		  },
+		  "bswSpecify" : {
+			"type" : "text",
+			"analyzer": "ik_max_word"
+		  },		  
+		  "bswBrand" : {
+			"type" : "text",
+			"analyzer": "ik_max_word"
+		  },
+		  "bswUnit" : {
+			"type" : "keyword"
+		  },
+		  "bswIncluPrice" : {
+			 "type" : "double"
+		  },
+		  "bswTariffPrice" : {
+			 "type" : "double"
+		  },
+		  "bswTaxRate" : {
+			"type" : "keyword"
+		  },
+		  "bswQuoTime" : {
+			"type": "date",
+            "format" : "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd"
+		  },
+		  "bswQuoArea" : {
+			 "type" : "keyword"
+		  },
+		  "bswSupplier" : {
+			  "type" : "text",
+			  "analyzer": "ik_max_word",
+			  "search_analyzer": "ik_max_word"
+		  },
+		  "bswContact" : {
+			 "type" : "keyword"
+		  },
+		  "bswContactPhone" : {
+			 "type" : "keyword"
+		  },
+		  "bswAddr" : {
+			 "type" : "keyword"
+		  },
+		  "bswDuty" : {
+			 "type" : "keyword"
+		  }
+		}
+	  }
+	}
+}
+
+
+参考资料：http://www.cnblogs.com/xing901022/p/5011501.html
